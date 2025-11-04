@@ -1,0 +1,176 @@
+/* RESET GENERAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #f2f5ff;
+  color: #2c3e50;
+  overflow: hidden;
+}
+
+/* ESTRUCTURA PRINCIPAL */
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* PANEL IZQUIERDO (Formulario) */
+.left-panel {
+  background: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  border-right: 2px solid #ddd;
+}
+
+.left-panel h2 {
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.left-panel h4 {
+  margin-top: 15px;
+  color: #333;
+}
+
+.left-panel form {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.left-panel input[type="text"],
+button {
+  width: 100%;
+  padding: 10px 0;
+  margin: 8px 0;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* OPCIONES DE RESPUESTA */
+.kahoot-option {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 10px 0;
+  padding: 8px 0;
+  color: white;
+}
+
+.kahoot-option input[type="text"] {
+  margin-left: 10px;
+  width: 80%;
+  padding: 8px 0;
+  border: none;
+}
+
+.rojo { background-color: #e74c3c; }
+.azul { background-color: #3498db; }
+.verde { background-color: #2ecc71; }
+.amarillo { background-color: #f1c40f; color: black; }
+
+/* PANEL DERECHO (Preguntas guardadas tipo Kahoot) */
+.right-panel {
+  flex: 1;
+  background: #f8f9fa;
+  overflow-y: auto;
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* Tarjeta de cada pregunta */
+.pregunta-card {
+  background: white;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  width: 80%;
+  padding: 20px 0;
+}
+
+.pregunta-titulo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Cuadrícula 2x2 para las opciones */
+.opciones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.opcion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.correcta {
+  outline: 3px solid #222;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* BOTÓN DE CERRAR SESIÓN */
+.logout-container {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10;
+}
+
+.logout {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: white;
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* MENSAJES */
+.success {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.empty {
+  color: #666;
+  font-style: italic;
+}

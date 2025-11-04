@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crear Pregunta - Kahoot Style</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="logout-container">
+      <a href="/logout" class="logout">Cerrar sesión</a>
+    </div>
+
+    <div class="main-container">
+      <!-- Panel izquierdo: formulario -->
+      <div class="left-panel">
+        <h2>🎮 Crear Pregunta tipo Kahoot</h2>
+
+        {% if mensaje %}
+        <p class="success">{{ mensaje }}</p>
+        {% endif %}
+        <form method="POST">
+          <input
+            type="text"
+            name="pregunta"
+            placeholder="Escribe la pregunta"
+            required
+          /><br />
+
+          <h4>Opciones de respuesta</h4>
+
+          <div class="kahoot-option rojo">
+            <input type="radio" name="correcta" value="1" required />
+            <input type="text" name="opcion1" placeholder="Opción 1" required />
+          </div>
+
+          <div class="kahoot-option azul">
+            <input type="radio" name="correcta" value="2" />
+            <input type="text" name="opcion2" placeholder="Opción 2" required />
+          </div>
+
+          <div class="kahoot-option verde">
+            <input type="radio" name="correcta" value="3" />
+            <input type="text" name="opcion3" placeholder="Opción 3" required />
+          </div>
+
+          <div class="kahoot-option amarillo">
+            <input type="radio" name="correcta" value="4" />
+            <input type="text" name="opcion4" placeholder="Opción 4" required />
+          </div>
+
+          <button type="submit">Guardar Pregunta</button>
+        </form>
+      </div>
+
+      <!-- Panel derecho: lista de preguntas -->
+      <!-- Panel derecho: lista de preguntas -->
+<div class="right-panel">
+  <h3>📋 Preguntas guardadas</h3>
+
+  {% if preguntas %}
+  <form method="POST" action="{{ url_for('vaciar_preguntas') }}">
+    <button type="submit" class="vaciar-btn">Vaciar Preguntas</button>
+  </form>
+
+  {% for p in preguntas %}
+  <div class="pregunta-card">
+    <div class="pregunta-titulo">
+      <h4>{{ p.pregunta }}</h4>
+    </div>
+
+    <div class="opciones-grid">
+      {% for o in p.opciones %}
+      <div
+        class="opcion {% if loop.index == 1 %} rojo {% elif loop.index == 2 %} azul {% elif loop.index == 3 %} verde {% elif loop.index == 4 %} amarillo {% endif %} {% if loop.index == p.correcta|int %} correcta{% endif %}"
+      >
+        {% if loop.index == p.correcta|int %} ✅ {% endif %} {{ o }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <p class="empty">No hay preguntas creadas aún.</p>
+  {% endif %}
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
