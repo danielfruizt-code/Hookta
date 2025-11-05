@@ -96,7 +96,7 @@ hootka/
 2. Clona o descarga el repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/hootka.git
+git clone https://github.com/danielfruizt-code/Hookta
 cd hootka
 ```
 
@@ -113,13 +113,13 @@ python -m venv .venv
    - Windows:
 
    ```bash
-   .venv\Scripts\activate
+    venv\Scripts\activate
    ```
 
    - Linux / macOS:
 
    ```bash
-   source .venv/bin/activate
+   source venv/bin/activate
    ```
 
 5. Instala las dependencias necesarias:

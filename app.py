@@ -36,6 +36,38 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        usuario = request.form['usuario']
+        password = request.form['password']
+        confirmar = request.form['confirmar']
+
+        if not usuario or not password or not confirmar:
+            return render_template('register.html', error="Todos los campos son obligatorios")
+        if password != confirmar:
+            return render_template('register.html', error="Las contraseñas no coinciden")
+
+        conn = get_db_connection()
+        if conn:
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT * FROM usuarios WHERE usuario = %s", (usuario,))
+            existente = cursor.fetchone()
+            if existente:
+                cursor.close()
+                conn.close()
+                return render_template('register.html', error="El usuario ya existe")
+
+            cursor.execute("INSERT INTO usuarios (usuario, password) VALUES (%s, %s)", (usuario, password))
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return render_template('register.html', mensaje="✅ Usuario creado con éxito. Ahora puedes iniciar sesión.")
+        else:
+            return render_template('register.html', error="No se pudo conectar a la base de datos")
+
+    return render_template('register.html')
+
 @app.route('/logout')
 def logout():
     session.pop('usuario', None)
@@ -66,7 +98,6 @@ def crear_pregunta():
 
     return render_template('crear_pregunta.html', preguntas=preguntas)
 
-# 🔹 Nueva ruta para vaciar todas las preguntas
 @app.route('/vaciar', methods=['POST'])
 def vaciar_preguntas():
     global preguntas

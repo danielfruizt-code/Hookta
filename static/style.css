@@ -5,6 +5,113 @@
   padding: 0;
 }
 
+/* ======== LOGIN PAGE ======== */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  width: 350px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.container input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.container button:hover {
+  background-color: #0056b3;
+}
+
+/* Mensajes de error o éxito */
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  background: #fdeaea;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.success {
+  color: #2ecc71;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  background: #e9f9ee;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* ======== REGISTRO DE USUARIO ======== */
+.login-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Para consistencia visual con el login */
+.container h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.container input[type="password"]:focus,
+.container input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
@@ -17,6 +124,7 @@ html, body {
 .main-container {
   display: flex;
   height: 100vh;
+  width: 100vw;
 }
 
 /* PANEL IZQUIERDO (Formulario) */
@@ -49,8 +157,8 @@ html, body {
 .left-panel input[type="text"],
 button {
   width: 100%;
-  padding: 10px 0;
-  margin: 8px 0;
+  padding: 10px;
+  margin: 8px;
   border: 1px solid #aaa;
   font-size: 1rem;
 }
@@ -72,16 +180,16 @@ button:hover {
 .kahoot-option {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   margin: 10px 0;
-  padding: 8px 0;
+  padding: 8px;
   color: white;
 }
 
 .kahoot-option input[type="text"] {
   margin-left: 10px;
   width: 80%;
-  padding: 8px 0;
+  padding: 8px;
   border: none;
 }
 
