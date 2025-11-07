@@ -82,6 +82,7 @@ hootka/
 │  └─ db.py
 ├─ templates/
 │  ├─ login.html
+│  └─ register.html
 │  └─ crear_pregunta.html
 ├─ static/
 │  └─ style.css
