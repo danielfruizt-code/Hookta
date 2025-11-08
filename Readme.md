@@ -44,8 +44,8 @@ python --version
 1. Entra a [http://localhost/phpmyadmin]
 2. Crea una nueva base de datos llamada:
 
-```bash
-hootka_db
+```sql
+CREATE DATABASE hootka_db;
 ```
 
 3. Abre la pestaña SQL y ejecuta este script:
