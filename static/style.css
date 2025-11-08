@@ -8,7 +8,7 @@
 html, body {
   height: 100%;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f2f5ff;
+  background-color: color-mix(in srgb, rgb(70, 23, 143) 80%, black);
   color: #2c3e50;
   display: flex;
     justify-content: center;

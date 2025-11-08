@@ -46,6 +46,7 @@ python --version
 
 ```sql
 CREATE DATABASE hootka_db;
+USE hootka_db;
 ```
 
 3. Abre la pestaña SQL y ejecuta este script:
@@ -160,13 +161,13 @@ python -m venv .venv
    - Windows:
 
    ```bash
-    venv\Scripts\activate
+    .venv\Scripts\activate
    ```
 
    - Linux / macOS:
 
    ```bash
-   source venv/bin/activate
+    .source venv/bin/activate
    ```
 
 5. Instala las dependencias necesarias:
